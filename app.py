@@ -1,6 +1,7 @@
 import cv2 
 import mediapipe as mp 
 import pyautogui
+import math 
 
 
 x1 = y1 = x2 = y2 = 0
@@ -50,7 +51,8 @@ while True:
                     cv2.circle(img=frame , center=(x,y) , radius=8 , color= (0,0,255) , thickness=3)
                     x2 = x 
                     y2 = y
-                    dist = ((x2-x1)**2 + (y2-y1)**2)*(0.5)//4
+
+                    dist = math.hypot(x2 - x1, y2 - y1)   
                     cv2.line(frame , (x1 , y1) , (x2, y2) , (255,255,255) , 3)
                     
                     
